@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SPACEnow</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+        <script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
+        <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="container">
+            <!--NavBar-->
+            <nav class="navbar navbar-expand-md navbar-light bg-light">
+                <a class="navbar-brand" href="http://localhost:8383/Projeto%20I/index.html">
+                    <img src="images/home.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                    SPACEnow</a>                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">ISS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="##">NASA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="###">SpaceX</a>
+                        </li>
+                        <li class="nav-item active dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                The Space
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="form.html">Form</a>
+                                <a class="dropdown-item" href="table.html">Table</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Articles</a>
+                                <a class="dropdown-item" href="#">Theories</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <form class="d-inline-block my-2 my-lg-0">
+                        <input class="form-control mr-sm-0" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-light mr-sm-0" type="submit">
+                            <img src="images/search.png" width="25" height="25" class="img-fluid" alt="">
+                        </button>
+                    </form>
+                </div>
+            </nav>
+            <!--Form-->
+            <br>
+            <div class="container">
+                <h4> Contact us!</h4>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputFirstName">First Name</label><br>
+                            <input class="form-control" placeholder="Name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputLastName">Last Name</label><br>
+                            <input class="form-control" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Email</label><br>
+                        <input type="text" class="form-control" placeholder="@">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail">Address</label><br>
+                        <input type="text" class="form-control" placeholder="123 Main St">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-5">
+                            <label for="inputCity">City</label><br>
+                            <input type="text" class="form-control" id="inputCity" placeholder="City">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputState">State</label><br>
+                            <select id="inputState" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputZip">ZIP Code</label><br>
+                            <input type="text" class="form-control" id="inputZip" placeholder="ZIP">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="textArea"></label><br>
+                        <textarea class="form-control col-md-12" rows="5" placeholder="Write here!"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <br>
+            <!--Footer-->
+            <div class="container">
+                <h4>Learn more!</h4><br>
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <p class="text-center esconder">
+                            <a target="_blank" href="https://www.spacex.com/">
+                                www.spacex.com
+                            </a>
+                        </p>
+                        <a target="_blank" href="https://www.spacex.com/">
+                            <img src="images/logospacex.png" class="img-fluid" alt="Responsive image" ></a>
+                    </div>
+                    <div class="col-md-4 text-center">
+                         <p class="text-center esconder">
+                            <a target="_blank" href="https://www.nasa.gov/">www.nasa.gov</a>
+                        </p>
+                        <a target="_blank" href="https://www.nasa.gov/" class="text-center">
+                            <img src="images/logonasa.png" class="img-fluid" alt="Responsive image"></a>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <p class="text-center esconder">
+                            <a target="_blank" href="https://www.space.com/">www.space.com</a>
+                        </p>
+                        <a target="_blank" href="https://www.space.com/">
+                            <img src="images/spacecomlogo.png" class="img-fluid" alt="Responsive image"></a>
+                    </div>
+                </div>
+
+                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+            </div>
+        </div>
+    </body>
+</html>
