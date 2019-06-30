@@ -1,0 +1,14 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "main/base.html" %}
+
+{% block content %}
+    <h1>Funções cadastradas</h1>
+    <ul>
+    {% for role in roles %}
+            <li>{{ role.name }} </li>
+    {% endfor %}
+    </ul>
+    <hr>
+    <h1>Adicionar Funções</h1>
+    {{ wtf.quick_form(form) }}
+{% endblock %}

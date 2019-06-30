@@ -1,0 +1,7 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "main/base.html" %}
+
+{% block content %}
+    <h1>Edit Profile - {{ username }}</h1>
+    {{ wtf.quick_form(form) }}
+{% endblock %}
