@@ -1,15 +1,37 @@
 {% import "bootstrap/wtf.html" as wtf %}
+{% import "main/_pgnation_macro.html" as pg_macro %}
 {% extends "main/base.html" %}
 
+<!--List of Users -->
 {% block content %}
-    <h1>Users</h1>
-    <ul>
-        {% for user in users%}
-            <li> 
-                <a href="/editprofile/{{ user.id }}">
-                {{ user.username }} - {{ user.role }}
-                </a>
-            </li>
+<div class="container">
+    <h3>Users</h3>
+    <hr>
+    <table class="table table-responsive-md table-borderless table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#ID</th>
+                <th scope="col">Username</th>
+                <th scope="col">@Email</th>
+                <th scope="col">Role</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <th scope="row">{{ user.id }}</th>
+                <td><a href="/editprofile/{{ user.id }}">{{ user.username }}</a></td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.role.name }}</td>
+                <td> xxxx </td>
+            </tr>
         {% endfor %}
-    </ul>
-{% endblock %}
+        </tbody>
+    </table>
+    <!-- Pagination -->
+    <div class="container">
+            {{ pg_macro.pagination_widget(pagination, '.list_user') }}
+    </div>
+</div>
+{% endblock %}       

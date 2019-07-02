@@ -1,0 +1,27 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "main/_pgnation_macro.html" as pg_macro %}
+{% extends 'main/base.html' %}
+
+{% block content %}
+<h4 class="text-center">Latest News - All Topics</h4><hr> 
+{% for news in allnews %}
+<div class="row">
+    <div class="col-md-4">
+        <figure class="figure">
+            <a href="/news/{{ news.id }}"><img src="/static/images/imgnoticias2.jpg" class="figure-img img-fluid rounded"></a>
+            <figcaption class="figure-caption">A caption of space x first re-flight.</figcaption>
+        </figure>
+    </div>
+    <div class="col-md-8">
+        <a href="/news/{{ news.id }}" class="float-right">{{ news.timestamp.date() }}</a>
+        <a href="/news/{{ news.id }}" style="color: black"><h3><strong>{{ news.title }}</strong></h3></a>
+        <a href="/news/{{ news.id }}" style="color: black"><p>{{ news.index_body }}</p></a>
+    </div>
+</div>
+<hr>
+{% endfor %}
+<!-- Pagination -->
+<div class="container">
+    {{ pg_macro.pagination_widget(pagination, '.listnews') }}
+</div>
+{% endblock %}

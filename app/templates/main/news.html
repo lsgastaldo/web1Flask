@@ -1,5 +1,20 @@
+{% import "bootstrap/wtf.html" as wtf %}
 {% extends 'main/base.html' %}
+
 <!--News-->
 {% block content %}
-    <a>empty</a>
+<div class="container">
+    <h2 class="text-center">{{ news.title }}</h2><hr>
+    <div class="row">
+        <div class="col-md-12">
+            <figure class="figure">
+                    <img src="/static/images/imgnoticias2.jpg" class="figure-img img-fluid rounded">
+                    <figcaption class="figure-caption">A caption for spacex first re-flight.</figcaption>
+            </figure>
+        </div>
+        <div class="col-md-12">
+            {{ news.body }}
+        </div>
+    </div>
+</div>
 {% endblock %}

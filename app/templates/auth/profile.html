@@ -3,27 +3,34 @@
 
 <!--Profile-->
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-4 img">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvzOpl3-kqfNbPcA_u_qEZcSuvu5Je4Ce_FkTMMjxhB-J1wWin-Q"  class="img-rounded">
-        </div>
-        <div class="col-md-4 bg-light details">
-            <blockquote>
-                <h5>{{ user.username }} - {{ user.role_id }}</h5>
-                <small><cite title="Source Title">Chicago, United States of America  <i class="icon-map-marker"></i></cite></small>
-            </blockquote>
-            <p>
-                {{user.name}} {{user.lastname}} <br>
-                {{user.email}} <br>    
-            </p>
-        </div>
-        <div class="col-md-2"></div>
-    <!-- </div>
-    {% if current_user.is_administrator()%}
-    <a class="btn btn-primary" href="/postnews" role="button">Post News</a>
-    {% endif %}
-    </div> -->
+<h3>Profile</h3>
+<hr>
+<div class="row">
+    <div class="col-md-4 text-center">
+        <img src="/static/images/avatar1.jpg"  class="img-fluid img-thumbnail">
+    </div>
+    <div class="col-lg-8 bg-light rounded">
+        <h4>{{ user.username }} - {{ user.role_id}}</h4><br>
+        <p>
+        {{user.name}} {{user.lastname}}<br>
+        {{user.email}}
+        </p>
+        <p>
+        About me:<br>
+        {{user.aboutme}}
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <br>
+        <a class="btn btn-primary btn-block" href="/editprofile" role="button">Edit Profile</a>
+        {% if current_user.is_administrator()%}
+            <a class="btn btn-dark btn-block" href="/editprofile/{{ current_user.id }}" role="button">Edit Profile(ADMIN)</a>
+            <a class="btn btn-dark btn-block" href="/postnews" role="button">Post News</a>
+            <a class="btn btn-dark btn-block" href="/addrole" role="button">Add Role</a>
+            <a class="btn btn-dark btn-block" href="/userlist" role="button">Users</a>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}

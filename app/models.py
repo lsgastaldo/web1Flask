@@ -5,12 +5,14 @@ from . import login_manager
 from email.policy import default
 from datetime import datetime
 
+
 class Permission:
     FOLLOW = 1
     COMMENT = 2
     WRITE = 4
     MODERATE = 8
     ADMIN = 16
+
 
 class Role(db.Model):
     __tablename__ = 'roles'
@@ -77,6 +79,7 @@ class Role(db.Model):
             db.session.add(role)
         db.session.commit()
 
+
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
@@ -84,8 +87,9 @@ class User(UserMixin, db.Model):
     name = db.Column(db.String(64))
     lastname = db.Column(db.String(64))
     email = db.Column(db.String(64))
+    aboutme = db.Column(db.String(128))
+    comments = db.relationship('Comentary', backref='author', lazy='dynamic')
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
-    # posts = db.relationship('Post', backref='author', lazy='dynamic')
     password_hash = db.Column(db.String(128))
 
     def __init__(self, **kwargs):
@@ -113,24 +117,28 @@ class User(UserMixin, db.Model):
     def is_administrator(self):
         return self.has_permission(Permission.ADMIN)
 
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-# class Post(db.Model):
-#     __tablename__ = 'posts'
-#     id = db.Column(db.Integer, primary_key=True)
-#     body = db.Column(db.Text)
-#     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-#     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
-# class News(db.Model):
-#     __tablename__ = 'news'
-#     id = db.Column(id.Integer, primary_key=True)
-#     title = db.Column(db.String(64))
-#     index_body = db.Column(db.String(256))
-#     body = db.Column(db.Text)
-#     img = db.Column(db.String(64))
-#     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-#     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-#     posts = db.relationship('Post', backref='author', lazy='dynamic')
+class Comentary(db.Model):
+    __tablename__ = 'posts'
+    id = db.Column(db.Integer, primary_key=True)
+    body = db.Column(db.Text)
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    news_id = db.Column(db.Integer, db.ForeignKey('news.id'))
+
+
+class News(db.Model):
+    __tablename__ = 'news'
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(64))
+    index_body = db.Column(db.String(256))
+    body = db.Column(db.Text)
+    img = db.Column(db.String(64))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    comments = db.relationship('Comentary', backref='authorComments', lazy='dynamic')

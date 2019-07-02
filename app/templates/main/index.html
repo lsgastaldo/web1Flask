@@ -1,3 +1,4 @@
+{% import "bootstrap/wtf.html" as wtf %}
 {% extends 'main/base.html' %}
 
 {% block content %}
@@ -11,21 +12,21 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{url_for('static', filename='images/img1.jpg')}}" class="d-block w-100" alt="...">
+                <img src="{{url_for('static', filename='images/img2.jpg')}}" class="d-block w-100">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First slide label</h5>
                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="{{url_for('static', filename='images/img2.jpg')}}" class="d-block w-100" alt="...">
+                <img src="{{url_for('static', filename='images/img2.jpg')}}" class="d-block w-100">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Second slide label</h5>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="{{url_for('static', filename='images/img3.jpg')}}" class="d-block w-100" alt="...">
+                <img src="{{url_for('static', filename='images/img2.jpg')}}" class="d-block w-100">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Third slide label</h5>
                     <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
@@ -45,67 +46,21 @@
 
 <!--News-->
 <div class="container">
-    <hr><h4 class="text-center">News</h4><hr>
+    <hr style="border-top: 2px solid lightblue; background: transparent;">
+    <a href="/listnews" class="text-center" style="color: black"><h4>Lastest News</h4></a>
+    <hr style="border-top: 2px solid lightblue; background: transparent;">
     <div class="row">
-        <div class="col-md-4 bg-light">
-            <a href="#####"><h5>Titulo1</h5></a>
-            <a href="#####"><img src="{{url_for('static', filename='images/img3.jpg')}}" class="img-fluid" alt="Responsive image"></a>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ornare scelerisque felis, 
-                non tempor nisl ultricies non. Morbi nunc felis, consectetur in imperdiet feugiat, tincidunt ut justo. 
-                Sed vel dui ac magna finibus lacinia. Donec blandit sodales varius. Duis bibendum aliquet rutrum. Quisque a 
-                consectetur nunc, eget maximus dolor. Proin sed risus vehicula lorem volutpat vestibulum vitae ut est. Nulla et 
-            </p>
-        </div>
+    {% for news in index_news %}
         <div class="col-md-4">
-            <a href="#####"><h5>Titulo2</h5></a>
-            <a href="#####"><img src="{{url_for('static', filename='images/img3.jpg')}}" class="img-fluid" alt="Responsive image"></a>
+            <figure class="figure">
+                <a href="/news/{{ news.id }}"><img src="{{ news.img }}" class="figure-img img-fluid"></a>
+            </figure>
+            <a href="/news/{{ news.id }}" class="text-center" style="color: black"><h4>{{ news.title }}</h4></a>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ornare scelerisque felis, 
-                non tempor nisl ultricies non. Morbi nunc felis, consectetur in imperdiet feugiat, tincidunt ut justo. 
-                Sed vel dui ac magna finibus lacinia. Donec blandit sodales varius. Duis bibendum aliquet rutrum. Quisque a 
-                consectetur nunc, eget maximus dolor.   
+               {{ news.index_body }}
             </p>
         </div>
-        <div class="col-md-4 bg-light">
-            <a href="#####"><h5>Titulo3</h5></a>
-            <a href="#####"><img src="{{url_for('static', filename='images/img3.jpg')}}" class="img-fluid" alt="Responsive image"></a>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ornare scelerisque felis, 
-                non tempor nisl ultricies non. Morbi nunc felis, consectetur in imperdiet feugiat, tincidunt ut justo. 
-                Sed vel dui ac magna finibus lacinia. Donec blandit sodales varius. Duis bibendum aliquet rutrum. Quisque a 
-                consectetur nunc, eget maximus dolor. Proin sed risus vehicula lorem volutpat vestibulum vitae ut est. Nulla et 
-                lectus blandit, maximus mauris vitae, rhoncus mauris. Nunc vel diam accumsan, lobortis arcu sed, cursus tellus.
-            </p>
-        </div>
-        <div class="w-100"></div>
-        <div class="col-md-4">
-            <a href="#####"><h5>Titulo4</h5></a>
-            <a href="#####"><img src="{{url_for('static', filename='images/img3.jpg')}}" class="img-fluid" alt="Responsive image"></a>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ornare scelerisque felis, 
-                non tempor nisl ultricies non. Morbi nunc felis, consectetur in imperdiet feugiat, tincidunt ut justo. 
-            </p>
-        </div>
-        <div class="col-md-4 bg-light">
-            <a href="#####"><h5>Titulo5</h5></a>
-            <a href="#####"><img src="{{url_for('static', filename='images/img3.jpg')}}" class="img-fluid" alt="Responsive image"></a>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ornare scelerisque felis, 
-                non tempor nisl ultricies non. Morbi nunc felis, consectetur in imperdiet feugiat, tincidunt ut justo. 
-                Sed vel dui ac magna finibus lacinia. Donec blandit sodales varius. Duis bibendum aliquet rutrum. Quisque a 
-                consectetur nunc, eget maximus dolor. Proin sed risus vehicula lorem volutpat vestibulum vitae ut est. Nulla et 
-            </p>
-        </div>
-        <div class="col-md-4">
-            <a href="#####"><h5>Titulo6</h5></a>
-            <a href="#####"><img src="{{url_for('static', filename='images/img3.jpg')}}" class="img-fluid" alt="Responsive image"></a>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ornare scelerisque felis, 
-                non tempor nisl ultricies non. Morbi nunc felis, consectetur in imperdiet feugiat, tincidunt ut justo. 
-                Sed vel dui ac magna finibus lacinia. Donec blandit sodales varius. Duis bibendum aliquet rutrum. Quisque a 
-            </p>
-        </div>
+    {% endfor %}
     </div>
 </div>
 {% endblock %}
