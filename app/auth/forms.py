@@ -6,9 +6,9 @@ from app.models import User, Role, Permission
 
 
 class LoginForm(FlaskForm):
-    username = StringField("Username", validators=[DataRequired()])
-    userpassword = PasswordField("Password", validators=[DataRequired()])
-    submit = SubmitField("Login")
+    username = StringField(label="", validators=[DataRequired()])
+    userpassword = PasswordField(label="" , validators=[DataRequired()])
+    submit = SubmitField("Log in")
 
 
 class UserRegistrationForm(FlaskForm):

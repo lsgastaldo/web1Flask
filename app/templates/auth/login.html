@@ -3,8 +3,22 @@
 
 <!--Login-->
 {% block content %}
-<div class="container center-block"><br>
-    <h2>Login</h2>
-    {{ wtf.quick_form(form) }}
+<div class="row bg-light">
+    <div class="col-md-12" style="height: 100px"></div>
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h2 class="text-center">Log in please</h2><hr>
+        <form class="form form-horizontal" method="POST" action="/login">
+            {{ form.csrf_token() }}
+            {{ wtf.form_field(form.username, placeholder="username" )}}
+            {{ wtf.form_field(form.userpassword, placeholder="password" )}}<br>            
+            {{ wtf.form_field(form.submit, class="btn btn-primary btn-block") }}
+            <br><hr>
+            <p class="text-center"><a href="######">Forgot your password?</a></p>
+            <p class="text-center"><a href="/signup">Create account !</a></p>
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+    <div class="col-md-12" style="height: 100px"></div>
 </div>
 {% endblock %}

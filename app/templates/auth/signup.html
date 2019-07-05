@@ -3,8 +3,29 @@
 
 <!--User Register-->
 {% block content %}
-<div class="container">
-    <hr><h5>Create Account</h5><hr>
-    {{ wtf.quick_form(form) }}
+<h3>Create Account</h3><hr>
+<div class="container" style="background-image: url('/static/images/signup1.jpg');">
+<div class="row">
+    <div class="bg col-md-4" style="height: 720px;"></div>
+        <!-- <figure class="figure">
+            <img src="" class="figure-img img-fluid rounded" style="height: 720px;">
+        </figure>
+    </div> -->
+    <div class="col-md-8">
+        <form class="form form-horizontal" method="POST" action="/signup">
+            {{ form.csrf_token() }}
+            {{ wtf.form_field(form.username, placeholder="Username" )}}
+            {{ wtf.form_field(form.name, placeholder="Name" )}}
+            {{ wtf.form_field(form.lastname, placeholder="Last name" )}}
+            {{ wtf.form_field(form.email, placeholder="@Email" )}}
+            {{ wtf.form_field(form.aboutme, placeholder="About me" )}}   
+            {{ wtf.form_field(form.userpassword, placeholder="Password" )}}
+            {{ wtf.form_field(form.confpassword, placeholder="Confirm password" )}}
+            {{ wtf.form_field(form.submit, class="btn btn-primary btn-block") }}
+        </form>
+    </div>
+    <!-- <div class="col-md-2"></div> -->
+    <!-- {{ wtf.quick_form(form) }} -->
+</div>
 </div>
 {% endblock %}

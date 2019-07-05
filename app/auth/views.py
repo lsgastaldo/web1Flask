@@ -41,7 +41,9 @@ def user_registration():
             name=form.name.data,
             lastname=form.lastname.data,
             email=form.email.data,
+            aboutme=form.aboutme.data,
             password=form.userpassword.data,
+            confpassword=form.confpassword.data,
             role_id=role.id
             )
         db.session.add(user)
